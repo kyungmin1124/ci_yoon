@@ -24,6 +24,11 @@ class Fm2 extends CI_Controller {
     $this->load->view('footer');
   }
   function _head(){
+<<<<<<< HEAD
+=======
+    var_dump($this->session->userdata('session_test'));
+    $this->session->set_userdata('session_test','egoing');
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
     $ps = $this->fm_anyang->gets();
     $this->load->view('head');
     $this->load->helper('url');

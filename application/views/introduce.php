@@ -23,8 +23,12 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <h2 style="padding-top:30px;text-align: center;font-family:'Jeju Hallasan',serif;color:#4b0082;">FM2019 FC안양 PLAY</h2>
     <div class="container" style="padding-top:90px;">
+=======
+    <div class="container" style="padding-top:150px;">
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
         <section class="contents project-card" style="cursor:pointer;" onclick="location.href='/index.php/fm2';">
           <section class="project-thumnail" id="project-a"></section>
           <section class="project-explain">
@@ -32,10 +36,17 @@
           </section>
         </section>
 
+<<<<<<< HEAD
         <section class="contents project-card" style="cursor:pointer;" onclick="location.href='/index.php/board';">
           <section class="project-thumnail2" id="project-b"></section>
           <section class="project-explain">
             <p> FM 토론 </p>
+=======
+        <section class="contents project-card">
+          <section class="project-thumnail2" id="project-b"></section>
+          <section class="project-explain">
+            <p> 경기 분석 </p>
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
           </section>
         </section>
       </div>

@@ -1,5 +1,6 @@
 body {
   padding-top:80px;
+<<<<<<< HEAD
 }
 nav ul p {
   font-size: 8px;
@@ -12,6 +13,20 @@ nav ul p {
   float:left;
   font-family: 'Nanum Pen Script', cursive;
   font-size:20px;
+=======
+  background-image:url('../../static/user/logo.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+nav ul a {
+  color:darkviolet;
+  font-weight: 700;
+  float:left;
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
 }
 
 input[type=text] {
@@ -64,8 +79,13 @@ section p {
 .project-card2 {
   float:left;
   margin-left: 50px;
+<<<<<<< HEAD
   width: 300px;
   height: 250px;
+=======
+  width: 400px;
+  height: 300px;
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
   border-radius:25px;
   border:1px solid rgb(0,0,0);
   position: relative;
@@ -80,8 +100,13 @@ section p {
   height: 350px;
 }
 .project-card2:hover {
+<<<<<<< HEAD
   width: 350px;
   height: 300px;
+=======
+  width: 450px;
+  height: 350px;
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
 }
 
 .project-thumnail {
@@ -113,6 +138,7 @@ section p {
   height: 80%;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+<<<<<<< HEAD
   background-image: url('../../static/user/ggf.gif');
   background-size: cover;
 }
@@ -121,6 +147,8 @@ section p {
   height: 80%;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+=======
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
   background-image: url('../../static/user/GOAL.gif');
   background-size: cover;
 }
@@ -211,7 +239,11 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
+<<<<<<< HEAD
 background-color: rgba(51,0,0,0.4) !important;
+=======
+background-color: rgba(148,0,211,0.5) !important;
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
 }
 
 .card-header h3{
@@ -225,6 +257,7 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+<<<<<<< HEAD
 
 #nav1 {
    padding:0;
@@ -233,13 +266,21 @@ margin-left: 4px;
    background-repeat: no-repeat;
    background-position: center;
    border-bottom: 2px solid #4A0112;
+=======
+.navbar.transparent.navbar-inverse {
+   padding:0;
+   border-width: 0px;
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
    -webkit-box-shadow: 0px 0px;
    box-shadow: 0px 0px;
    background-color: rgba(0,0,0,0.0);
 }
+<<<<<<< HEAD
 #nav2 {
   padding:0;
   -webkit-box-shadow: 0px 0px;
   box-shadow: 0px 0px;
   background-color: rgba(0,0,0,0.0);
 }
+=======
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12

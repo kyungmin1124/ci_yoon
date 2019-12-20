@@ -5,6 +5,7 @@ class Auth extends CI_Controller {
   function __construct() {
     parent::__construct();
     }
+<<<<<<< HEAD
 
   function logout() {
     $this->session->sess_destroy();
@@ -12,11 +13,14 @@ class Auth extends CI_Controller {
     redirect('/');
   }
 
+=======
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
   function login() {
     $this->load->view('head');
     $this->load->view('login');
     $this->load->view('footer');
     }
+<<<<<<< HEAD
   function register() {
     $this->load->view('head');
     $this->load->library('form_validation');
@@ -63,6 +67,10 @@ class Auth extends CI_Controller {
         redirect('/auth/login');
         $this->session->flashdata('mess');
     }
+=======
+  function authentication() {
+    echo '성공';
+>>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
   }
 }
 ?>
