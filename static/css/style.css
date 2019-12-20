@@ -1,0 +1,245 @@
+body {
+  padding-top:80px;
+}
+nav ul p {
+  font-size: 8px;
+  float:right;
+  color:darkviolet;
+}
+.nav-link {
+  color:#4A0112;
+  font-weight: 700;
+  float:left;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size:20px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+textarea {
+  width: 100%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: orange;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+section p {
+  color:black;
+  text-decoration:none;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: 'Nanum Pen Script', cursive;
+}
+.project-card {
+  float:left;
+  margin-left: 50px;
+  width: 200px;
+  height: 300px;
+  border-radius:25px;
+  border:1px solid rgb(0,0,0);
+  position: relative;
+  box-shadow: 5px 5px 20px;
+  transition: all 0.3s;
+  transition-delay: 0.1s;
+  margin: auto;
+}
+.project-card2 {
+  float:left;
+  margin-left: 50px;
+  width: 300px;
+  height: 250px;
+  border-radius:25px;
+  border:1px solid rgb(0,0,0);
+  position: relative;
+  box-shadow: 5px 5px 20px;
+  transition: all 0.3s;
+  transition-delay: 0.1s;
+  margin: auto;
+}
+
+.project-card:hover {
+  width: 250px;
+  height: 350px;
+}
+.project-card2:hover {
+  width: 350px;
+  height: 300px;
+}
+
+.project-thumnail {
+  width: 100%;
+  height: 80%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-image: url('../../static/user/bruno.jpg');
+  background-size: cover;
+}
+.project-thumnail2 {
+  width: 100%;
+  height: 80%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-image: url('../../static/user/kimwon.jpg');
+  background-size: cover;
+}
+.project-thumnail3 {
+  width: 100%;
+  height: 80%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-image: url('../../static/user/keep.gif');
+  background-size: cover;
+}
+.project-thumnail4 {
+  width: 100%;
+  height: 80%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-image: url('../../static/user/ggf.gif');
+  background-size: cover;
+}
+.project-thumnail5 {
+  width: 100%;
+  height: 80%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-image: url('../../static/user/GOAL.gif');
+  background-size: cover;
+}
+.project-explain{
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #191970;
+}
+
+.social_icon span:hover{
+color: blue;
+cursor: pointer;
+}
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 40px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.pre_container{
+height: 100%;
+align-content: center;
+padding-top:80px;
+}
+.container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.btn_container {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(51,0,0,0.4) !important;
+}
+
+.card-header h3{
+color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+#nav1 {
+   padding:0;
+   height: 80px;
+   background-image: url('../../static/user/logo.jpg');
+   background-repeat: no-repeat;
+   background-position: center;
+   border-bottom: 2px solid #4A0112;
+   -webkit-box-shadow: 0px 0px;
+   box-shadow: 0px 0px;
+   background-color: rgba(0,0,0,0.0);
+}
+#nav2 {
+  padding:0;
+  -webkit-box-shadow: 0px 0px;
+  box-shadow: 0px 0px;
+  background-color: rgba(0,0,0,0.0);
+}
