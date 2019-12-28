@@ -18,5 +18,18 @@ class Board_list extends CI_MODEL {
     ));
     return $this->db->insert_id();
   }
+  function delete($id) {
+    $this->db->delete('board',array('id'=>$id));
+  }
+  function update($id,$title,$body) {
+    $this->db->set('created', 'NOW()', false);
+    $data = array(
+      'id' => $id,
+      'title' => $title,
+      'body' => $body
+    );
+    $this->db->replace('board',$data);
+  }
+
 }
 ?>

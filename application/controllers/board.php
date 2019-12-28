@@ -19,10 +19,23 @@ class Board extends CI_Controller {
     $this->load->view('get2', array('people'=>$people));
     $this->load->view('footer');
   }
+  function delete($id) {
+    if (!$this->session->userdata('is_login') == TRUE) {
+      $this->load->helper('url');
+      redirect('index.php/auth/login');
+    }
+    $this->board_list->delete($id);
+    $this->load->helper('url');
+    redirect('index.php/board');
+  }
+  function update($id) {
+    $this->board_list->update($id,$this->input->post('mod_title'),$this->input->post('mod_body'));
+    $this->load->helper('url');
+    redirect('index.php/board');
+  }
   function _header(){
     $bs = $this->board_list->gets();
     $this->load->view('head');
-    $this->load->helper('url');
     $this->load->view('board_list', array('bs'=>$bs));
   }
 }

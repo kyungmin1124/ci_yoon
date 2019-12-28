@@ -50,11 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['fm2/(:num)'] = "fm2/get/$1";
-<<<<<<< HEAD
 $route['board/(:num)'] = "board/get/$1";
 $route['default_controller'] = 'fm2/index';
-=======
 $route['default_controller'] = 'welcome';
->>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
 $route['404_override'] = '404_errors_not_found';
 $route['translate_uri_dashes'] = FALSE;

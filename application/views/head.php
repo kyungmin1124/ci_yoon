@@ -13,10 +13,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
-
-=======
->>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
+    <script type="text/javascript" src="/static/lib/ckeditor/ckeditor.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Complatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,16 +26,13 @@
   </head>
 
   <body>
-<<<<<<< HEAD
     <nav class="navbar transparent navbar-inverse fixed-top" id="nav1">
       <h6 style="color:#4A0112;font-weight:800;margin-left:20px;">FM2019 안양정보</h6>
       <ul>
         <a class="nav-link" href="/index.php/fm">Home</a>
-
         <?php
         if ($this->session->userdata('is_login') == true) {
         ?>
-
           <p><?php echo $this->session->userdata('email')?>님 환영합니다.</p>
             <a class="nav-link" href="/index.php/auth/logout">로그아웃</a>
         <?php
@@ -49,13 +43,11 @@
         <?php
         }
         ?>
-=======
-    <nav class="navbar transparent navbar-inverse fixed-top">
-      <h6 style="color:darkviolet;font-weight:800;margin-left:20px;">FM2019 안양정보</h6>
-      <ul>
-        <a class="nav-link" href="/index.php/fm">Home</a>
-        <a class="nav-link" href="/index.php/fm/add">회원가입</a>
-        <a class="nav-link">로그인</a>
->>>>>>> 1186f238d84f76f8b7ea54ae9bcbbe0449bd8b12
-      </ul>
     </nav>
+    <?php if($this->session->userdata('logged_in')==true) {
+      ?>
+      <p style="padding:0;"><?php echo $this->session->userdata('email')?> 계정으로 관리 중</p>
+      <a href="/index.php/auth/logout">로그아웃</a>
+    <?php
+    }
+    ?>

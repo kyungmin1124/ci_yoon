@@ -23,5 +23,11 @@ class User_model extends CI_Model {
     $result = $this->db->get_where('user', array('email'=>$option['email']))->row();
     return $result;
   }
+  function alter($pw, $email) {
+    $update = array('password'=>$pw);
+    $where = array('email'=>$email);
+    $result=@$this->db->update('user',$update,$where);
+    return $result;
+  }
 }
 ?>

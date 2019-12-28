@@ -5,11 +5,13 @@
     <br><br>
     <div>
       <div><?=$people->created?></div>
-      <?=auto_link($people->body)?>
+      <div><?=($people->body)?></div>
     </div>
   </article>
   <br>
 </div>
-<a class="btn btn-dark" href="/index.php/board" style="float:right;">목록</a>
+<a class="btn btn-dark" href="/index.php/write/update/<?=$people->id?>" style="text-align: center;">수정</a>
+<a class="btn btn-dark" href="/index.php/board/delete/<?=$people->id?>" style="text-align: center;">삭제</a>
+<a class="btn btn-dark" href="/index.php/board" style="text-align: center;">목록</a>
 </div>
 </div>

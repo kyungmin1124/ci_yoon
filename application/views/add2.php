@@ -1,4 +1,4 @@
-<form action="/index.php/fm/add2" method="post" class="col-md-5">
+<form action="/index.php/fm/add" method="post" class="col-md-5">
   <input type="text" name="ad_name" placeholder="이름">
   <br>
   <input type="text" name="ad_image" placeholder="url위치">
