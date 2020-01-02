@@ -6,6 +6,8 @@ class Write extends CI_Controller {
     parent::__construct();
 
     $this->load->model('board_list');
+    $this->load->model('reply_model');
+    $this->load->library('form_validation');
   }
 
   function add() {
@@ -15,7 +17,6 @@ class Write extends CI_Controller {
     }
 
     $this->load->view('head');
-    $this->load->library('form_validation');
     $this->form_validation->set_rules('add_title','제목','required');
     $this->form_validation->set_rules('add_body','본문','required');
 
@@ -30,6 +31,21 @@ class Write extends CI_Controller {
       redirect('index.php/board');
     }
     $this->load->view('footer');
+  }
+  function add_comment(){
+    $this->form_validation->set_rules('comment_name','이름','required');
+    $this->form_validation->set_rules('comment_content','본문','required');
+
+    if ($this->form_validation->run() === false)
+    {
+      $this->load->view('lists');
+    }
+    else
+    {
+      $this->reply_model->add($this->input->post('comment_name'), $this->input->post('comment_content'),$this->input->post('comment_id'));
+      $this->load->helper('url');
+      redirect('index.php/board');
+    }
   }
   function update($id){
     if (!$this->session->userdata('is_login') == TRUE) {

@@ -5,10 +5,10 @@ echo '<table class="table table-striped">
 <th>제목</th>
 <th style="text-align:right;">작성시간</th>
 </tr>';
-foreach($bs as $entry) {
+foreach($bs as $ent) {
   echo '<tr>';
-  echo '<td><a style="color:black;" href="/index.php/board/get/'.$entry->id.'">'.$entry->title.'</a></td>';
-  echo '<td style="text-align:right;">'.$entry->created.'</td>';
+  echo '<td><a style="color:black;" href="/index.php/board/get/'.$ent->post_id.'">'.$ent->title.'</a></td>';
+  echo '<td style="text-align:right;">'.$ent->created.'</td>';
   echo '</tr>';
 }
 echo '</table>';

@@ -6,10 +6,10 @@ class Board_list extends CI_MODEL {
   public function gets() {
     return $this->db->query('SELECT * FROM board')->result();
   }
-  public function get($b_id) {
-    return $this->db->get_where('board', array('id'=>$b_id))->row();
-
+  public function get($post_id) {
+    return $this->db->get_where('board', array('post_id' => $post_id))->row();
   }
+
   function add($title, $body) {
     $this->db->set('created', 'NOW()', false);
     $this->db->insert('board',array(
@@ -19,17 +19,16 @@ class Board_list extends CI_MODEL {
     return $this->db->insert_id();
   }
   function delete($id) {
-    $this->db->delete('board',array('id'=>$id));
+    $this->db->delete('board',array('post_id'=>$id));
   }
   function update($id,$title,$body) {
     $this->db->set('created', 'NOW()', false);
     $data = array(
-      'id' => $id,
+      'post_id' => $id,
       'title' => $title,
       'body' => $body
     );
     $this->db->replace('board',$data);
   }
-
 }
 ?>
