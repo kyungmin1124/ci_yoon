@@ -7,18 +7,18 @@ class Auth extends CI_Controller {
     }
 
 
-  function logout() {
+  function logout() {//로그아웃 처리
     $this->session->sess_destroy();
     redirect('/index.php/fm');
   }
 
-  function login() {
+  function login() {//기존 작업 페이지로 가기 위한 리다이렉션 작업
     $this->load->view('head');
     $this->load->view('login',array('returnURL'=>$this->input->get('returnURL')));
     $this->load->view('footer');
     }
 
-  function register() {
+  function register() {// 회원가입 폼 유효성 검사, 통과 시 가입 성공, 로그인 페이지 이동
     $this->load->view('head');
     $this->load->library('form_validation');
 
@@ -41,18 +41,18 @@ class Auth extends CI_Controller {
     $this->load->view('footer');
   }
 
-  function authentication() {
+  function authentication() { //로그인 처리
     $this->load->model('user_model');
     $user = $this->user_model->getByEmail(array('email'=>$this->input->post('email')));
     if (
         $this->input->post('email') == $user->email &&
         password_verify($this->input->post('password'), $user->password)
-    ) {
+    ) {//관리자 아이디(peo)로 로그인 시 fm2 기본 페이지로 이동
         if ($user->email == "peo@google.com")
         {
           $this->session->set_userdata(array("logged_in"=>true, 'email'=>"admin"));
           redirect('index.php/fm2');
-        } else {
+        } else { //로그인 성공 시 바로 이전에 있던 페이지로 이동
           $this->session->set_userdata(array('is_login'=>true, 'email'=>$user->email));
           $returnURL = $this->input->get('returnURL');
           log_message('info', $returnURL);
@@ -67,7 +67,7 @@ class Auth extends CI_Controller {
   function pre_find() {
     $this->load->view('find');
   }
-  function finder() {
+  function finder() { //이메일을 입력하면 해당 메일주소로 새로운 비밀번호 전송
     $this->load->model('user_model');
     $this->load->library('form_validation');
     $this->form_validation->set_rules('f_email','이메일','required|valid_email|callback_email_exists');
@@ -75,7 +75,7 @@ class Auth extends CI_Controller {
     if($this->form_validation->run() == false) {
       $this->load->view('find');
       echo "다시 전송하십시오";
-    } else {
+    } else { //새로운 비밀번호 6자리 생성
       $newp = $this->_Generate(6);
 
       if(!function_exists("password_hash")) {
@@ -86,16 +86,16 @@ class Auth extends CI_Controller {
 
       $result = $this->user_model->alter($hash,$email);
 
-      if($result) {
+      if($result) { //비밀번호를 알려주는 메일, 구글사용, 임시 아이디(dbsrudals92)
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'smtp.gmail.com';
         $config['smtp_port'] = '465';
-        $config['smtp_user'] = "dbsrudals92@gmail.com";
-        $config['smtp_pass'] = "a5857457a";
+        $config['smtp_user'] = "xxx@google.com";
+        $config['smtp_pass'] = "";
 
         $this->load->library('email',$config);
         $this->email->initialize(array('mailtype'=>'html'));
-        $this->email->from('dbsrudals92@gmail.com','yoon');
+        $this->email->from('xxx@gmail.com','yoon');
         $this->email->to($email);
         $this->email->subject('신규 비밀번호 입니다.');
         $html = "<h3>변경된 번호는".$newp."</h3>";
@@ -109,7 +109,7 @@ class Auth extends CI_Controller {
       }
     }
   }
-  function _Generate($length) {
+  function _Generate($length) { //난수 생성 - 숫자와 소문자만
     $characters="0123456789";
     $characters .="abcdefghijklmnopqrstuvwxyz";
     $string_generated="";
@@ -119,7 +119,7 @@ class Auth extends CI_Controller {
     }
     return $string_generated;
   }
-  function email_exists($email) {
+  function email_exists($email) {//입력한 이메일이 데이터에 있는가를 확인
 
     if($email) {
       $result = array();

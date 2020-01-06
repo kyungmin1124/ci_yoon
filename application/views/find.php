@@ -1,3 +1,4 @@
+
 <form action="/index.php/auth/finder" method="post">
   <div class="input-group form-group">
     <div class="input-group-prepend">

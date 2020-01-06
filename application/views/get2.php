@@ -10,28 +10,31 @@
   </article>
   <br/>
 </div>
-<h5>댓글</h5>
-<?php
 
+<h5 style="margin-left:200px;padding:0;">댓글</h5>
+<?php
 foreach ($reply as $re) {
   if($re->post_id == $board->post_id){
   // code...
-    echo '<div>';
-    echo '<table>';
+
+    echo '<table class="comment_show">';
     echo '<tr>';
-    echo '<td><p style="font-size:5px;padding:0;">'.$re->name.':</p></td>';
-    echo '<td><p style="font-size:5px;padding:0;">'.$re->content.'//</td></p>';
-    echo '<td><p style="font-size:5px;padding:0;">'.$re->date.'</td></p>';
+    echo '<td><p style="font-size:5px;">이름:'.$re->name.'</p></td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td><p style="font-size:5px;">내용:'.$re->content.'</td></p>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td><p style="font-size:5px;">날짜:'.$re->date.'</td></p>';
     echo '</tr>';
     echo '</table>';
-    echo '</div>';
-  } else {
-    echo "no any commnets yet";
+
   }
 }
 ?>
-<h5>댓글 작성</h5>
-<div>
+
+<h5 style="margin-left:200px;padding:0;">댓글 작성</h5>
+<div class="comment_form">
   <form action="/index.php/write/add_comment" method="post" id="comment_form">
     <div class="form-group">
       <input type="text" name="comment_name" id="comment_name" class="form-control" placeholder="이름"/>
@@ -45,6 +48,7 @@ foreach ($reply as $re) {
     </div>
   </form>
 </div>
+
 <div style="text-align:center;">
   <a class="btn btn-dark" href="/index.php/write/update/<?=$board->post_id?>">수정</a>
   <a class="btn btn-dark" href="/index.php/board/delete/<?=$board->post_id?>">삭제</a>

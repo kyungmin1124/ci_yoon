@@ -39,7 +39,7 @@ class Fm extends CI_Controller {
     $this->load->view('footer');
   }
 
-  function upload_receive_from_ck() {
+  function upload_receive_from_ck() {//파일 업로드 설정
     $config['upload_path'] = '/static/user';
     $config['allowed_types'] = 'gif|jpg|png';
     $config['max_size'] = '500';

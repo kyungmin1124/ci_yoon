@@ -1,3 +1,4 @@
+
     <div class="span12" style="margin-left:auto;margin-right:auto;">
       <article style="text-align:center;">
         <img style="width:300px;height:300px;" src="<?=$person->image?>"/>

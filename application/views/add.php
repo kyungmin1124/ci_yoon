@@ -1,3 +1,4 @@
+
 <div class="container">
 <form action="/index.php/write/add" method="post">
   게시물 작성 <input type="text" name="add_title" placeholder="제목">

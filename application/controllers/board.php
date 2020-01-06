@@ -10,50 +10,33 @@ class Board extends CI_Controller {
     $this->load->library('form_validation');
     $this->load->helper('url');
   }
-  function index() {
+  function index() {//리스트 생성을 위한 데이터 가져오기
     $bs = $this->board_list->gets();
     $this->load->view('head');
     $this->load->view('lists', array('bs'=>$bs));
     $this->load->view('footer');
   }
 
-  public function get($post_id) {
+  public function get($post_id) {//받아온 id값 데이터에 담긴 내용을 출력
     $board = $this->board_list->get($post_id);
     $reply = $this->reply_model->gets();
     $this->load->view('head');
     $this->load->view('get2', array('board'=>$board, 'reply'=>$reply));
     $this->load->view('footer');
   }
-  function comment_add() {
-    $this->load->view('head');
-    $this->form_validation->set_rules('comment_name','댓이름','required');
-    $this->form_validation->set_rules('comment_content','댓본문','required');
 
-    if ($this->form_validation->run() === false)
-    {
-      echo "전부 입력해야 합니다";
-    }
-    else
-    {
-      $this->reply_model->add($this->input->post('add_title'), $this->input->post('add_body'));
-      $this->load->helper('url');
-      redirect('index.php/board');
-    }
-    $this->load->view('footer');
-  }
-
-  function delete($id) {
+  function delete($id) {//id값에 해당하는 데이터 삭제
     if (!$this->session->userdata('is_login') == TRUE) {
       redirect('index.php/auth/login');
     }
     $this->board_list->delete($id);
     redirect('index.php/board');
   }
-  function update($id) {
+  function update($id) {//id값에 해당하는 데이터 수정
     $this->board_list->update($id,$this->input->post('mod_title'),$this->input->post('mod_body'));
     redirect('index.php/board');
   }
-  function _header(){
+  function _header(){//한 화면에 나타내기 위한 헤드 편집
     $bs = $this->board_list->gets();
     $this->load->view('head');
     $this->load->view('board_list', array('bs'=>$bs));
