@@ -8,11 +8,11 @@ class Write extends CI_Controller {
     $this->load->model('board_list');
     $this->load->model('reply_model');
     $this->load->library('form_validation');
+    $this->load->helper('url');
   }
 
   function add() {//로그인 후 게시물을 추가하는 기능
     if (!$this->session->userdata('is_login') == true){
-         $this->load->helper('url');
          redirect('index.php/auth/login?returnURL='.rawurlencode(site_url('index.php/write/add')));
     }
 
@@ -27,11 +27,11 @@ class Write extends CI_Controller {
     else
     {
       $this->board_list->add($this->input->post('add_title'), $this->input->post('add_body'));
-      $this->load->helper('url');
       redirect('index.php/board');
     }
     $this->load->view('footer');
   }
+
   function add_comment(){//댓글을 추가하는 기능 폼 유효성 검사
     $this->form_validation->set_rules('comment_name','이름','required');
     $this->form_validation->set_rules('comment_content','본문','required');
@@ -42,13 +42,13 @@ class Write extends CI_Controller {
     }
     else
     {
-      $this->reply_model->add($this->input->post('comment_name'), $this->input->post('comment_content'),$this->input->post('comment_id'));
-      redirect('index.php/board');
+      $result = $this->reply_model->add($this->input->post('comment_name'), $this->input->post('comment_content'),$this->input->post('comment_id'));
+      $list = $this->reply_model->add_comment($result);
+      echo json_encode($list);
     }
   }
   function update($id){//id값에 해당하는 데이터 수정
     if (!$this->session->userdata('is_login') == TRUE) {
-      $this->load->helper('url');
       redirect('index.php/auth/login');
     }
     $this->load->view('head');

@@ -1,3 +1,19 @@
+<?php
+if(!empty($this->session->flashdata('em'))):
+?>
+<script>
+	alert('<?=$this->session->flashdata('em')?>');
+</script>
+<?php endif;?>
+
+<?php
+if(!empty($this->session->flashdata('fail_mes'))):
+?>
+<script>
+	alert('<?=$this->session->flashdata('fail_mes')?>');
+</script>
+<?php endif;?>
+
 <div class="pre_container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">

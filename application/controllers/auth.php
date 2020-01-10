@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
   function __construct() {
     parent::__construct();
+    $this->load->helper('url');
     }
 
 
@@ -54,14 +55,14 @@ class Auth extends CI_Controller {
           redirect('index.php/fm2');
         } else { //로그인 성공 시 바로 이전에 있던 페이지로 이동
           $this->session->set_userdata(array('is_login'=>true, 'email'=>$user->email));
+          $this->session->set_flashdata('log_mes','환영합니다');
           $returnURL = $this->input->get('returnURL');
           log_message('info', $returnURL);
           redirect($returnURL ? $returnURL:'/');
         }
     } else {
-        $this->session->sess_destroy();
+        $this->session->set_flashdata('fail_mes','로그인에 실패했습니다');
         redirect('/index.php/auth/login');
-        echo '로그인 실패';
     }
   }
   function pre_find() {
@@ -101,9 +102,11 @@ class Auth extends CI_Controller {
         $html = "<h3>변경된 번호는".$newp."</h3>";
         $this->email->message($html);
         if(!$this->email->send()) {
-          echo "<script>alert(\"전송 실패\");</script>";
+          $this->session->set_flashdata('em','전송 실패');
+          redirect('index.php/auth/login');
           exit;
         } else {
+          $this->session->set_flashdata('em','이메일을 확인해주세요');
           redirect('index.php/auth/login');
         }
       }
@@ -119,13 +122,14 @@ class Auth extends CI_Controller {
     }
     return $string_generated;
   }
+
   function email_exists($email) {//입력한 이메일이 데이터에 있는가를 확인
 
     if($email) {
       $result = array();
       $sql = 'SELECT id FROM user WHERE email =?';
-      $query = $this->db->query($sql, array('email'=>$email));
-      $result=@$query->row();
+      $query = $this->db->query($sql, array('email'=>$email)); //뒤의 조건으로 데이터 재구성
+      $result=@$query->row(); //오류가 나더라도 진행, 재구성된 쿼리의 행을 뽑아 변수에 저장
 
       if(!$result) {
         $this->form_validation->set_message('email_exists',"존재하지 않는 주소입니다.");

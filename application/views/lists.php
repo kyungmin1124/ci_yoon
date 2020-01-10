@@ -19,7 +19,7 @@ echo '<a class="btn btn-dark" href="/index.php/write/add" style="text-align:cent
 
 <?php
 
-$num = "SELECT count(title) FROM board ORDER BY created DESC";
+$num = "SELECT count(title) FROM board";
 if(isset($_GET['page'])) {
   $page = ($_GET['page'])?$_GET['page']:1;
 } else {

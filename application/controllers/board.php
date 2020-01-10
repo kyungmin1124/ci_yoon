@@ -19,9 +19,8 @@ class Board extends CI_Controller {
 
   public function get($post_id) {//받아온 id값 데이터에 담긴 내용을 출력
     $board = $this->board_list->get($post_id);
-    $reply = $this->reply_model->gets();
     $this->load->view('head');
-    $this->load->view('get2', array('board'=>$board, 'reply'=>$reply));
+    $this->load->view('get2', array('board'=>$board));
     $this->load->view('footer');
   }
 

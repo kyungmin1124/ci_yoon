@@ -1,3 +1,10 @@
+<?php
+if(!empty($this->session->flashdata('log_mes'))):
+?>
+<script>
+	alert('<?=$this->session->flashdata('log_mes')?>');
+</script>
+<?php endif;?>
 
 <div class="container">
 <form action="/index.php/write/add" method="post">

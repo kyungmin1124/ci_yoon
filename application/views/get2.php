@@ -12,30 +12,55 @@
 </div>
 
 <h5 style="margin-left:200px;padding:0;">댓글</h5>
-<?php
-foreach ($reply as $re) {
-  if($re->post_id == $board->post_id){
-  // code...
-
-    echo '<table class="comment_show">';
-    echo '<tr>';
-    echo '<td><p style="font-size:5px;">이름:'.$re->name.'</p></td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td><p style="font-size:5px;">내용:'.$re->content.'</td></p>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td><p style="font-size:5px;">날짜:'.$re->date.'</td></p>';
-    echo '</tr>';
-    echo '</table>';
-
-  }
-}
-?>
+<button id="open_comment" class="btn btn-danger">펼치기</button>
+<table class="table table-bordered table-responsive" style="margin-left:200px;margin-right:auto;">
+  <thead>
+    <tr>
+      <td>이름</td>
+      <td>내용</td>
+      <td>날짜</td>
+    </tr>
+  </thead>
+  <tbody id="show_comment"></tbody>
+</table>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>
+  $(function(){
+    //callFunction
+    $('#comment_form').submit(function(e){
+      e.preventDefault();
+      var form = $(this);
+      var url = form.attr('action');
+      $.ajax({
+        type: 'post',
+        url: url,
+        dataType: 'json',
+        data: form.serialize(),
+        success: function(data){
+          $.each(data, function(index,value){
+            var html = '';
+            var i;
+            for(i=0;i<data.length;i++){
+              html += '<tr>'+
+              '<td>' + data[i].name + '</td>' +
+              '<td>' + data[i].content + '</td>' +
+              '<td>' + data[i].date + '</td>' +
+              '</tr>';
+            }
+            $('#show_comment').html(html);
+          });
+        },
+        error: function(data){
+          alert('무언가 오류가 있습니다');
+        }
+      });
+    }
+  )});
+</script>
 
 <h5 style="margin-left:200px;padding:0;">댓글 작성</h5>
 <div class="comment_form">
-  <form action="/index.php/write/add_comment" method="post" id="comment_form">
+  <form action="/index.php/write/add_comment" onsubmit="false" method="post" id="comment_form">
     <div class="form-group">
       <input type="text" name="comment_name" id="comment_name" class="form-control" placeholder="이름"/>
     </div>
@@ -44,9 +69,10 @@ foreach ($reply as $re) {
     </div>
     <input type="hidden" name="comment_id" id="comment_id" value="<?=$board->post_id?>"/>
     <div class="form-group">
-      <input type="submit" name="submit" id="submit" class="btn btn-info" value="제출"/>
+      <input type="submit" class="btn btn-success" id="comment_button" value="등록"/>
     </div>
   </form>
+
 </div>
 
 <div style="text-align:center;">
