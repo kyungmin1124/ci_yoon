@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['fm2/(:num)'] = "fm2/get/$1";
 $route['board/(:num)'] = "board/get/$1";
+
 $route['default_controller'] = 'board';
 $route['404_override'] = '404_errors_not_found';
 $route['translate_uri_dashes'] = FALSE;

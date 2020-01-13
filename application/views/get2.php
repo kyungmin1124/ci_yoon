@@ -78,5 +78,5 @@
 <div style="text-align:center;">
   <a class="btn btn-dark" href="/index.php/write/update/<?=$board->post_id?>">수정</a>
   <a class="btn btn-dark" href="/index.php/board/delete/<?=$board->post_id?>">삭제</a>
-  <a class="btn btn-dark" href="/index.php/board">목록</a>
+  <a class="btn btn-dark" href="/index.php/board?page=&list=">목록</a>
 </div>

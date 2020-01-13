@@ -9,6 +9,13 @@ class Board_list extends CI_MODEL {
   public function get($post_id) {
     return $this->db->get_where('board', array('post_id' => $post_id))->row();
   }
+  function get_list($limit,$listNum){
+    return $this->db->query('SELECT * FROM board LIMIT '.$limit.','.$listNum.'')->result();
+  }
+  function get_list_row(){
+    $result = $this->db->query('SELECT post_id FROM board');
+    return $result->num_rows();
+  }
 
   function add($title, $body) {
     $this->db->set('created', 'NOW()', false);
@@ -17,6 +24,7 @@ class Board_list extends CI_MODEL {
       'body'=>$body
     ));
     return $this->db->insert_id();
+
   }
   function delete($id) {
     $this->db->delete('board',array('post_id'=>$id));

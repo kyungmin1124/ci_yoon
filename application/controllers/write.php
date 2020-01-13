@@ -27,7 +27,7 @@ class Write extends CI_Controller {
     else
     {
       $this->board_list->add($this->input->post('add_title'), $this->input->post('add_body'));
-      redirect('index.php/board');
+      redirect('index.php/board?page=1&list=5');
     }
     $this->load->view('footer');
   }

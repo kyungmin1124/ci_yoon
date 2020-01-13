@@ -32,14 +32,14 @@
           </section>
         </section>
 
-        <section class="contents project-card" style="cursor:pointer;" onclick="location.href='/index.php/board';">
+        <section class="contents project-card" style="cursor:pointer;" onclick="location.href='/index.php/board?page=1&list=5';">
           <section class="project-thumnail2" id="project-b"></section>
           <section class="project-explain">
             <p> FM 토론 </p>
           </section>
         </section>
       </div>
-      
+
       <script src="http://code.jquery.com/jquery.js"></script>
       <script src="/static/lib/bootstrap/js/bootstrap.min.js"></script>
     </body>

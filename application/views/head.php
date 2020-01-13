@@ -30,7 +30,7 @@
 
   <body>
     <nav class="navbar transparent navbar-inverse fixed-top" id="nav1">
-      <h6 style="color:#4A0112;font-weight:800;margin-left:20px;">FM2019 안양정보</h6>
+      <h6 style="color:#4A0112;font-weight:800;margin-left:10px;padding:0;">FM2019 안양정보</h6>
       <ul>
         <a class="nav-link" href="/index.php/fm">Home</a>
         <?php
